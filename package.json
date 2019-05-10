@@ -1,0 +1,17 @@
+{
+  "name": "debugger-demo",
+  "version": "1.0.0",
+  "description": "debugger-demo",
+  "author": "YD-Feng",
+  "license": "MIT",
+  "bin": {
+    "m-debugger": "src/index.js"
+  },
+  "engines": {
+    "node": ">= 10"
+  },
+  "dependencies": {
+    "commander": "^2.20.0",
+    "nodejs-websocket": "^1.7.2"
+  }
+}

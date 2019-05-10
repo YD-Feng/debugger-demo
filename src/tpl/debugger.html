@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>m-debugger</title>
+</head>
+<body>
+<input type="text"
+       id="J-input"
+       placeholder="输入代码然后按回车执行"
+       style="width: 100%; height: 20px; background: transparent; font-family: 'Microsoft JhengHei'; font-size: 14px;">
+</input>
+<br>
+<br>
+
+<script type="text/javascript">
+    var host = '127.0.0.1';
+    var port = '@wsPort@';
+    var url = 'ws://' + host + ':' + port + '/';
+    var ws = new WebSocket(url);
+
+    document.getElementById('J-input').onkeyup = function (e) {
+        if (e.keyCode == 13 && e.target.value != '') {
+            var code = document.getElementById('J-input').value;
+            document.getElementById('J-input').value = '';
+            ws.send(JSON.stringify({
+                method: 'sendCode',
+                data: code
+            }));
+        }
+    };
+</script>
+</body>
+</html>
